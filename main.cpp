@@ -10,21 +10,21 @@ int main(int argc, char **argv) {
     }
     
     const int MAX_STR = 255;
-		wchar_t wstr[MAX_STR];
-
+    wchar_t wstr[MAX_STR];
+    
     printf("Device Info:\n");
     int res = hid_get_manufacturer_string(handle, wstr, MAX_STR);
-		if (res == -1) {
-			fprintf(stderr, "Could not get manufacturer string!\n");
-			return 2;
-		}
+    if (res == -1) {
+        fprintf(stderr, "Could not get manufacturer string!\n");
+        return 2;
+    }
     printf("\tManufacturer String: %ls\n", wstr);
     
     res = hid_get_product_string(handle, wstr, MAX_STR);
-  	if (res == -1) {
-			fprintf(stderr, "Could not get product string!\n");
-			return 3;
-		}
+    if (res == -1) {
+        fprintf(stderr, "Could not get product string!\n");
+        return 3;
+    }
     printf("\tProduct String: %ls\n", wstr);
     
     unsigned char buf[65];
