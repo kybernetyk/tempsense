@@ -14,9 +14,17 @@ int main(int argc, char **argv) {
 
     printf("Device Info:\n");
     int res = hid_get_manufacturer_string(handle, wstr, MAX_STR);
+		if (res == -1) {
+			fprintf(stderr, "Could not get manufacturer string!\n");
+			return 2;
+		}
     printf("\tManufacturer String: %ls\n", wstr);
     
     res = hid_get_product_string(handle, wstr, MAX_STR);
+  	if (res == -1) {
+			fprintf(stderr, "Could not get product string!\n");
+			return 3;
+		}
     printf("\tProduct String: %ls\n", wstr);
     
     unsigned char buf[65];
@@ -24,7 +32,7 @@ int main(int argc, char **argv) {
         int num = hid_read(handle, buf, 64);
         if (num < 0) {
             fprintf(stderr, "Could not read from device!\n");
-            return 2;
+            return 4;
         }
         if (num == 64) {
             short temp = *(short *)&buf[4]; //holy fuck!
