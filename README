@@ -1,7 +1,10 @@
 OS X Utility to read out data from the AVR Temp Sensor made by Diamex GmbH. 
 
+As seen here: http://www.led-genial.de/USB-Temperatur-Sensor-Tester-fuer-DS18B20
+
+
 Dependencies:
-	- clang
+	- clang (or gcc) in some newer incarnation 
 	- hidapi ( https://github.com/signal11/hidapi )
 
 Build & Run:
