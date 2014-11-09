@@ -1,0 +1,15 @@
+OS X Utility to read out data from the AVR Temp Sensor made by Diamex GmbH. 
+
+Dependencies:
+	- clang
+	- hidapi ( https://github.com/signal11/hidapi )
+
+Build & Run:
+	1. download, build and install hidapi from https://github.com/signal11/hidapi
+	2. run ./build_osx.sh
+	3. Connect the Temp Sensor and run ./tempsense
+
+
+Copyright & License:
+	This code is licensed under the Affero GPL3 License!
+	(c) Leon Szpilewski, 2014
