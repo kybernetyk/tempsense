@@ -2,8 +2,6 @@
 #include <cstdio>
 
 int main(int argc, char **argv) {
-#define MAX_STR 255
-    wchar_t wstr[MAX_STR];
     
     hid_device *handle = hid_open(0x16c0, 0x0480, nullptr);
     if (!handle) {
@@ -11,6 +9,9 @@ int main(int argc, char **argv) {
         return 1;
     }
     
+    const int MAX_STR = 255;
+		wchar_t wstr[MAX_STR];
+
     printf("Device Info:\n");
     int res = hid_get_manufacturer_string(handle, wstr, MAX_STR);
     printf("\tManufacturer String: %ls\n", wstr);
