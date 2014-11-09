@@ -36,11 +36,11 @@ int main(int argc, char **argv) {
             return 4;
         }
         if (num == 64) {
-		time_t now;
-	time(&now);
-	tm loctm;
-	localtime_r(&now, &loctm);
-
+            time_t now;
+            time(&now);
+            tm loctm;
+            localtime_r(&now, &loctm);
+            
             short temp = *(short *)&buf[4]; //holy fuck!
             printf("<%02d:%02d:%02d> temp: %+.1f°\n",loctm.tm_hour, loctm.tm_min, loctm.tm_sec, (float)temp/10.0f);
         }
