@@ -11,6 +11,9 @@ Build & Run:
 	1. download, build and install hidapi from https://github.com/signal11/hidapi
 	2. run ./build_osx.sh (or build_pi.sh for raspberry pi)
 	3. Connect the Temp Sensor and run ./tempsense (on the pi you need to sudo)
+	
+Building with GCC:
+	If you're using gcc please use the build_gcc.sh script.
 
 
 Copyright & License:
