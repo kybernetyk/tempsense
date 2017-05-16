@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
             localtime_r(&now, &loctm);
             
             short temp = *(short *)&buf[4]; //holy fuck!
-            printf("<%02d:%02d:%02d> temp: %+.1f°\n",loctm.tm_hour, loctm.tm_min, loctm.tm_sec, (float)temp/10.0f);
+            printf("<%02d:%02d:%02d> sensor: %d of %d, temp: %+.1f°\n", loctm.tm_hour, loctm.tm_min, loctm.tm_sec, buf[1], buf[0], (float)temp/10.0f);
         }
     }
     return 0;
