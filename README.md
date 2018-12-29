@@ -11,9 +11,7 @@ As seen here: http://www.led-genial.de/USB-Temperatur-Sensor-Tester-fuer-DS18B20
 ## Build & Run
 1. download, build and install [hidapi](https://github.com/signal11/hidapi) (or 'apt-get install libhidapi-dev' on ubuntu/debian)
 2. build with:
-   - MacOS X: `./build_osx.sh`
-   - Linux with clang: `./build_pi.sh`
-   - Linux with GCC: `./build_gcc.sh`
+   - `make`
 3. Connect the Temp Sensor and run
    - MacOS X: `./tempsense`
    - Linux: `sudo ./tempsense`
