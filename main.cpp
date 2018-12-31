@@ -41,8 +41,12 @@ int main(int argc, char **argv) {
             tm loctm;
             localtime_r(&now, &loctm);
             
-            short temp = *(short *)&buf[4]; //holy fuck!
-            printf("<%02d:%02d:%02d> sensor: %d of %d, temp: %+.1f°\n", loctm.tm_hour, loctm.tm_min, loctm.tm_sec, buf[1], buf[0], (float)temp/10.0f);
+            short temperature;
+            // The temperature is stored as type short in the bytebuffer in two seperate fields.
+            // We have to merge the bytes at position 3 (also shift it) and 4 together.
+            temperature  = (short)buf[3] << sizeof(unsigned char);
+            temperature += (short)buf[4];
+            printf("<%02d:%02d:%02d> sensor: %d of %d, temp: %+.1f°\n", loctm.tm_hour, loctm.tm_min, loctm.tm_sec, buf[1], buf[0], (float)temperature/10.0f);
         }
     }
     return 0;
