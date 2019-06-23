@@ -39,4 +39,4 @@ After writing the file and replugging your temperature sensor, your account shou
 ## Copyright & License
 
 This code is licensed under the Affero GPL3 License!
-(c) J. Szpilewski in 2014, js@suborbital.io
+(c) J. Szpilewski in 2014, js@szpilewski.com
