@@ -12,11 +12,14 @@ else
 FLAGS_USB := -lusb
 endif
 
-FLAGS_HID := $(shell pkg-config --libs --cflags ${CONFIG_PACKAGE})
+FLAGS_HID_LIB := $(shell pkg-config --libs ${CONFIG_PACKAGE})
+FLAGS_HID_INCLUDE := $(shell pkg-config --cflags ${CONFIG_PACKAGE})
 
 all: tempsense
-tempsense: main.cpp
-	$(CXX) -o $@ -std=c++11 ${FLAGS_HID} ${FLAGS_USB} $<
+tempsense.o: main.cpp
+	$(CXX) -c -o $@ -std=c++11 ${FLAGS_HID_INCLUDE} $<
+tempsense: tempsense.o
+	$(CXX) $< -std=c++11 ${FLAGS_HID_LIB} ${FLAGS_USB} -o $@
 
 clean:
-	rm -f tempsense
+	rm -f tempsense tempsense.o
